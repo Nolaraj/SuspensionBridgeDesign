@@ -1,6 +1,10 @@
 import pandas as pd
 import numpy as np
 
+StandardExcel_Path = r"C:\Users\Acer\Documents\Suspension Bridge Design\Design Standards.xlsx"
+Sheetname1 = "Sheet1"
+TableName1 = ['Table 7.3.1']
+
 
 def ExcelTable_extractor(Excel_Path, Sheetname, TableName):
     # Read the Excel file
