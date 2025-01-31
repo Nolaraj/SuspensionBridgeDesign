@@ -191,21 +191,27 @@ class BridgeManagementApp:
                 lenV2 = len(value2)
                 gap1 = textspan - lenV1 + centralgap
                 gap2 = chars_per_line -lenV1 - lenV2 - gap1
+                if gap2 >2:
+                    gap2 = gap2 -2
 
                 line = f'{value1}{" "*gap1}{value2}{" "*gap2}'
                 lines.append(line)
-            for line in lines:
-                if highlight:
-                    self.log_listbox.tag_configure("highlight", font=("Courier", 10, "bold"))
-                    self.log_listbox.insert("end", line)
-                else:
-                    self.log_listbox.insert("end", line)
+                print(line)
+            lines = "\n".join(lines)
+            self.log_listbox.tag_configure("highlight", font=("Courier", 10, "bold"))
+            self.log_listbox.insert(tk.END, lines)
+            # for line in lines:
+            #     if highlight:
+            #         self.log_listbox.tag_configure("highlight", font=("Courier", 10, "bold"))
+            #         self.log_listbox.insert("end", line)
+            #     else:
+            #         self.log_listbox.insert("end", line)
 
 
 
-            # Auto-scroll to the latest entry
-            self.log_listbox.yview(tk.END)
-            self.log_listbox.insert("end", "\n")
+        # Auto-scroll to the latest entry
+        self.log_listbox.yview(tk.END)
+        self.log_listbox.insert("end", "\n")
 
 
 
